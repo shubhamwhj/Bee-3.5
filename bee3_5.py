@@ -1,4 +1,4 @@
- import pygame, sys,random
+import pygame, sys,random
 
 pygame.init()
 pygame.mixer.init()
@@ -35,13 +35,17 @@ class Pipe:
     def __init__(self,x):
         self.gap=random.randint(150, 400)
         self.topPipe=pygame.Rect(x,self.gap-400,40,320)
+        #Create a rect named bottomPipe
         
     def display(self):
         screen.blit(images["pipe"],self.topPipe)
+        #Display the pipe image on bottomPipe 
+        
         #pygame.draw.rect(screen,(250,150,50),pygame.Rect(200,self.gap,100,100))
         
 bee=Bee()
 pipe1= Pipe(200)
+#Create second pipe object at 300
 
 while True:    
     screen.fill((50,150,255))
@@ -60,13 +64,9 @@ while True:
         groundx=0
 
     bee.display()  
-    pipe1.display() 
+    pipe1.display()
+    #Display second pipe
     screen.blit(images["base"],[groundx,550])
    
     pygame.display.update()
     clock.tick(30) 
-    
-    
-    
-    
-
